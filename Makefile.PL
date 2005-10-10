@@ -10,8 +10,7 @@ WriteMakefile(
     ABSTRACT     => 'A Simple HTTP Action for Bot::BasicBot::Pluggable',
     PREREQ_PM    => {
                      'Test::Simple' => 0.44,
-                     'Bot::BasicBot::Pluggable::Module' => 0.02,
                      'LWP::UserAgent' => 2.033,
-                     'URI::Escape' => 1.35,
+                     'URI::Escape' => 3.28,
                     },
 );
