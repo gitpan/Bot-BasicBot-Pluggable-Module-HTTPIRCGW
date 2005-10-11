@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Carp;
 use vars qw($VERSION);
-$VERSION = '0.011';
+$VERSION = '0.012';
 
 use Bot::BasicBot::Pluggable::Module;
 use base qw(Bot::BasicBot::Pluggable::Module);
@@ -24,11 +24,18 @@ Bot::BasicBot::Pluggable::Module::HTTPIRCGW - A Simple HTTP Action for Bot::Basi
     my $HttpIrcGw_handler = $bot->handler("HTTPIRCGW");
     $HttpIrcGw_handler->set($action_file);
 
+    here is an exmple of the action file:
+    ^!(fnord)$ # GET=>http://xxx.xxx/fnordtune.php # sub{$web_out=~s/\r\n//g;}
+    ^!todo # POST=>http://xxx.xx/wiki/?add_todoTNOnick=$who&text=$body # sub{$web_out = "task added";}
+    
+    # are delimiters
+    first there is a regex for a command
+    the action, GET or POST, with the url, in the case of a POST, TNO is the separator
+    then a sub with what to do (parsing, result), in the var "$web_out"
 
 =head1 DESCRIPTION
 
-A plugin module for L<Bot::BasicBot::Pluggable> to grab, and store URLs from
-and IRC channel to a delicious account.
+A plugin module for L<Bot::BasicBot::Pluggable> to perform HTTP actions
 
 =head1 USAGE
 
